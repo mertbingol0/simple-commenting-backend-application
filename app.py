@@ -7,14 +7,13 @@ app = Flask(__name__)
 @app.route('/comment', methods= ['POST', 'GET'])
 def commentFunc():
 	if request.method == 'POST':
-
+		
 		username = request.form.get('name')
 		email = request.form.get('email')
 		comment = request.form.get('comment')
 		send_comment(username, email, comment)
 
 		return 'comment successfully created'
-
 	else:
 		return render_template('comment.html')
 
